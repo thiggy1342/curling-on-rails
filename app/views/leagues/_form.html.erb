@@ -1,0 +1,28 @@
+<%= form_with scope: :league, url: leagues_path, local: true do |form| %>
+		
+		<% if @league.errors.any? %>
+			<% @league.errors.full_messages.each do |error| %>
+				<ul><%= error %></ul>
+			<% end %>
+		<% end %>
+
+		<p>
+			<%= form.label :length %>
+			<%= form.text_field :length %>
+		</p>
+		<p>
+			<%= form.label :day_of_the_week %>
+			<%= form.text_field :day_of_the_week %>
+		</p>
+		<p>
+			<%= form.label :sheets %>
+			<%= form.text_field :sheets %>
+		</p>
+		<p>
+			<%= form.label :manager %>
+			<%= form.text_field :manager %>
+		</p>
+		<p>
+			<%= form.submit %>
+		</p>
+	<% end %>

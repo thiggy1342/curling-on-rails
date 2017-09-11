@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_1: MyText
+  team_2: MyText
+  team_1_score: 
+  team_2_score: 
+  number_of_ends: 
+  start_date_time: 2017-09-11 17:23:39
+
+two:
+  team_1: MyText
+  team_2: MyText
+  team_1_score: 
+  team_2_score: 
+  number_of_ends: 
+  start_date_time: 2017-09-11 17:23:39

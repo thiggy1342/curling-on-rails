@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lead: MyText
+  second: MyText
+  vice: MyText
+  skip: MyText
+
+two:
+  lead: MyText
+  second: MyText
+  vice: MyText
+  skip: MyText
