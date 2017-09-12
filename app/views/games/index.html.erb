@@ -1,0 +1,15 @@
+<h1>All Games</h1>
+
+<table>
+  <tr>
+    <th>Start Time</th>
+    <th>Sheet</th>
+  </tr>
+  <tr>
+    <% @games.each do |game| %>
+      <td><%= game.start_date_time %></td>
+      <td><%= game.sheet %></td>
+      <td><%= link_to 'View', game_path(game) %></td>
+    <% end %>
+  </tr>
+</table>
