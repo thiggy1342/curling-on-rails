@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912190903) do
+ActiveRecord::Schema.define(version: 20170911212433) do
 
   create_table "games", force: :cascade do |t|
     t.text "team_1"
@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20170912190903) do
     t.datetime "start_date_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "sheet"
-  end
-
-  create_table "games_teams", force: :cascade do |t|
-    t.integer "games_id"
-    t.integer "teams_id"
-    t.index ["games_id"], name: "index_games_teams_on_games_id"
-    t.index ["teams_id"], name: "index_games_teams_on_teams_id"
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -38,16 +30,6 @@ ActiveRecord::Schema.define(version: 20170912190903) do
     t.text "manager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.time "game_start_time"
-  end
-
-  create_table "leagues_players", force: :cascade do |t|
-    t.integer "league_id"
-    t.integer "player_id"
-    t.index ["league_id"], name: "index_leagues_players_on_league_id"
-    t.index ["player_id"], name: "index_leagues_players_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -56,13 +38,6 @@ ActiveRecord::Schema.define(version: 20170912190903) do
     t.boolean "member"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "players_teams", force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "team_id"
-    t.index ["player_id"], name: "index_players_teams_on_player_id"
-    t.index ["team_id"], name: "index_players_teams_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
