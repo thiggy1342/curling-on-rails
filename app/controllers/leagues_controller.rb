@@ -15,6 +15,7 @@ class LeaguesController < ApplicationController
 	def create
 		@league = League.new(league_params)
 		if @league.save
+			@league.generate_games
 			redirect_to @league
 		else
 			render 'new'
