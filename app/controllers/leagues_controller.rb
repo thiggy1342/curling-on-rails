@@ -34,9 +34,15 @@ class LeaguesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@league = League.find(params[:id])
+		@league.destroy
+		redirect_to leagues_path
+	end
+
 	private
 
 	def league_params
-		params.require(:league).permit(:length, :day_of_the_week, :sheets, :manager)
+		params.require(:league).permit(:length, :day_of_the_week, :sheets, :manager, :start_date, :end_date, :game_start_time)
 	end
 end

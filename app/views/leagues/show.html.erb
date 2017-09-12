@@ -1,1 +1,28 @@
-<h1><%= @league.day_of_the_week %> Night League</h1>
+<h1><%= @league.day_of_the_week %> <%= @league.game_start_time %> League</h1>
+
+<h2>League Info</h2>
+
+<table>
+  <tr>
+    <td><strong># of Weeks</strong></td><td><%= @league.length %></td>
+  </tr>
+  <tr>
+    <td><strong>Day of the week</strong></td><td><%= @league.day_of_the_week %></td>
+  </tr>
+  <tr>
+    <td><strong>Game Start Time</strong></td><td><%= @league.game_start_time %></td>
+  </tr>
+  <tr>
+    <td><strong># of sheets</strong></td><td><%= @league.sheets %></td>
+  </tr>
+  <tr>
+    <td><strong>League Manager</strong></td><td><%= @league.manager %></td>
+  </tr>
+  <tr>
+    <td><strong>Start Date</strong></td><td><%= @league.start_date %></td>
+  </tr>
+  <tr>
+    <td><strong>End Date</strong></td><td><%= @league.end_date %></td>
+  </tr>
+
+</table>
