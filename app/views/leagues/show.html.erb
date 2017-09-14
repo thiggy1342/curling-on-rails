@@ -26,3 +26,7 @@
   </tr>
 
 </table>
+
+<%= link_to 'Back to Leagues', leagues_path %>
+<%= link_to 'Edit', edit_league_path(@league) %>
+<%= link_to 'Delete', league_path(@league), method: :delete, data: { confirm: 'Are you sure?'} %>
