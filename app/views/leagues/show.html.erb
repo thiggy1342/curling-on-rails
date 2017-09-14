@@ -24,6 +24,12 @@
   <tr>
     <td><strong>End Date</strong></td><td><%= @league.end_date %></td>
   </tr>
+  <tr>
+    <td><strong>Teams</strong></td><td><%= link_to 'View', league_teams_url(@league) %></td>
+  </tr>
+  <tr>
+    <td><strong>Games</strong></td><td><%= link_to 'View', league_games_url(@league) %></td>
+  </tr>
 
 </table>
 
