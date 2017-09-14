@@ -1,4 +1,4 @@
-<%= form_with model: :league, local: true do |form| %>
+<%= form_with scope: :league, url: leagues_path, local: true do |form| %>
 		
 		<% if @league.errors.any? %>
 			<% @league.errors.full_messages.each do |error| %>
