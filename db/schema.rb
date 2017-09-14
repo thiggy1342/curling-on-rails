@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20170914131549) do
     t.integer "team_1_score"
     t.integer "team_2_score"
     t.integer "number_of_ends"
-    t.datetime "start_date_time"
+    t.date "start_date"
+    t.time "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sheet"

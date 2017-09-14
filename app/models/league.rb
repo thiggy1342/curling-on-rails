@@ -18,4 +18,13 @@ class League < ApplicationRecord
 					only_integer: true
 				}
 	validates :manager, presence: true
+
+	def generate_games
+		length.times do |i|
+			date = start_date + (7 * i)
+			sheets.times do |sheet|
+				self.games.create(start_date: date, start_time: game_start_time, sheet: sheet)
+			end
+		end
+	end
 end
