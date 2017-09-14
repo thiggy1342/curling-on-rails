@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @league = League.find(params[:league_id])
+    @games = @league.games.all
   end
 
   def create
-    @league = League.find(params[:id])
+    @league = League.find(params[:league_id])
     @game = @league.games.create(game_params)
 
     redirect_to game_path(@game)

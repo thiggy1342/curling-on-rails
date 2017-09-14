@@ -1,0 +1,26 @@
+<h1>Teams</h1>
+
+<% if @teams.length == 0 %>
+  <h2>Looks like this league doesn't have any teams yet. Why not create some?</h2>
+<% else %>
+  <table>
+    <tr>
+      <th>Team Name</th>
+      <th>Lead</th>
+      <th>Second</th>
+      <th>Vice</th>
+      <th>Skip</th>
+    </tr>
+    <% @teams.each do |team| %>
+    <tr>
+      <td>team.team_name</td>
+      <td>team.lead</td>
+      <td>team.second</td>
+      <td>team.vice</td>
+      <td>team.skip</td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<%= link_to 'Create New Team', new_league_team_path %>

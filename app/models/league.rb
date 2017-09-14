@@ -1,5 +1,6 @@
 class League < ApplicationRecord
 	has_many :games
+	has_many :teams
 
 	validates :length, 
 				numericality: {
@@ -23,7 +24,7 @@ class League < ApplicationRecord
 		length.times do |i|
 			date = start_date + (7 * i)
 			sheets.times do |sheet|
-				self.games.create(start_date: date, start_time: game_start_time, sheet: sheet)
+				self.games.create(start_date: date, start_time: game_start_time, sheet: sheet+1)
 			end
 		end
 	end

@@ -1,0 +1,27 @@
+<h1>Create New Team</h1>
+
+<%= form_with(model: [@league, @league.teams.build], local: true) do |form| %>
+  <p>
+    <%= form.label :team_name %><br>
+    <%= form.text_field :team_name %><br>
+  </p>
+  <p>
+    <%= form.label :lead %><br>
+    <%= form.text_field :lead %><br>
+  </p>
+  <p>
+    <%= form.label :second %><br>
+    <%= form.text_field :second %><br>
+  </p>
+  <p>
+    <%= form.label :vice %><br>
+    <%= form.text_field :vice %><br>
+  </p>
+  <p>
+    <%= form.label :skip %><br>
+    <%= form.text_field :skip %><br>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
