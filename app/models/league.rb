@@ -1,7 +1,5 @@
 class League < ApplicationRecord
 	has_many :games
-	has_many :teams
-	has_and_belongs_to_many :players
 
 	validates :length, 
 				numericality: {
