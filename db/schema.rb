@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911212433) do
+ActiveRecord::Schema.define(version: 20170914131549) do
 
   create_table "games", force: :cascade do |t|
+    t.integer "league_id"
     t.text "team_1"
     t.text "team_2"
     t.integer "team_1_score"
@@ -21,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170911212433) do
     t.datetime "start_date_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sheet"
+    t.index ["league_id"], name: "index_games_on_league_id"
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -30,6 +33,9 @@ ActiveRecord::Schema.define(version: 20170911212433) do
     t.text "manager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.time "game_start_time"
   end
 
   create_table "players", force: :cascade do |t|
