@@ -1,0 +1,36 @@
+<h1>Edit game <%=@game.id %> of <%= @league.day_of_the_week %> League</h1>
+
+<%= form_with(model: [@league, @game]) do |form| %>
+    <p>
+      <%= form.label :start_date %><br>
+      <%= form.date_field :start_date %>
+    </p>
+    <p>
+      <%= form.label :start_time %><br>
+      <%= form.time_field :start_time %>
+    </p>
+    <p>
+      <%= form.label :sheet %><br>
+      <%= form.number_field :sheet %>
+    </p>
+    <p>
+      <%= form.label :team_1, 'Yellow Team' %><br>
+      <%= form.text_field :team_1 %>
+    </p>
+    <p>
+      <%= form.label :team_2, 'Blue Team' %><br>
+      <%= form.text_field :team_2 %>
+    </p>
+    <p>
+      <%= form.label :team_1_score, 'Yellow Team Score' %><br>
+      <%= form.number_field :team_1_score %>
+    </p>
+    <p>
+      <%= form.label :team_2_score, 'Blue Team Score' %><br>
+      <%= form.number_field :team_2_score %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>
+<%= link_to 'Back to game', league_game_path(@league, @game) %>
