@@ -18,6 +18,9 @@
       <td><%=team.second%></td>
       <td><%=team.vice%></td>
       <td><%=team.skip%></td>
+      <td><%= link_to 'View', league_team_path(@league, team) %></td>
+      <td><%= link_to 'Edit', edit_league_team_path(@league, team) %></td>
+      <td><%= link_to 'Delete', league_team_path(@league, team), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </table>

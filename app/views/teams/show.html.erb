@@ -5,12 +5,16 @@
     <td><strong>Lead</strong></td><td><%= @team.lead %></td>
   </tr>
   <tr>
-    <td><strong>Lead</strong></td><td><%= @team.second %></td>
+    <td><strong>Second</strong></td><td><%= @team.second %></td>
   </tr>
   <tr>
-    <td><strong>Lead</strong></td><td><%= @team.vice %></td>
+    <td><strong>Vice</strong></td><td><%= @team.vice %></td>
   </tr>
   <tr>
-    <td><strong>Lead</strong></td><td><%= @team.skip %></td>
+    <td><strong>Skip</strong></td><td><%= @team.skip %></td>
   </tr>
 </table>
+
+<%= link_to 'Back to Teams', league_teams_path %>
+<%= link_to 'Edit', edit_league_team_path(@league, @team) %>
+<%= link_to 'Delete', league_team_path(@league, @team), method: :delete, data: { confirm: 'Are you sure?' } %>
