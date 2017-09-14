@@ -4,6 +4,11 @@ class GamesController < ApplicationController
     @games = @league.games.all
   end
 
+  def show
+    @league = League.find(params[:league_id])
+    @game = @league.games.find(params[:id])
+  end
+
   def create
     @league = League.find(params[:league_id])
     @game = @league.games.create(game_params)

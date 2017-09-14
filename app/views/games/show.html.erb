@@ -1,0 +1,27 @@
+<h1><%= @league.day_of_the_week %> League, Game <%= @game.id %></h1>
+ <table>
+   <tr>
+     <td><strong>Start Date</strong></td><td><%= @game.start_date %></td>
+   </tr>
+   <tr>
+     <td><strong>Start Time</strong></td><td><%= @game.start_time %></td>
+   </tr>
+   <tr>
+     <td><strong>Sheet</strong></td><td><%= @game.sheet %></td>
+   </tr>
+   <tr>
+     <td><strong>Yellow Team</strong></td><td><%= @game.team_1 %></td>
+   </tr>
+   <tr>
+     <td><strong>Blue Team</strong></td><td><%= @game.team_2 %></td>
+   </tr>
+     <tr>
+     <td><strong>Yellow Team Score</strong></td><td><%= @game.team_1_score %></td>
+   </tr>
+     <tr>
+     <td><strong>Blue Team Score</strong></td><td><%= @game.team_2_score %></td>
+   </tr>
+ </table>
+<%= link_to 'Back to Games', league_games_path(@league) %>
+<%= link_to 'Edit', edit_league_game_path(@league, @game) %>
+<%= link_to 'Delete', league_game_path(@league, @game), method: :delete, data:{ confirm: 'Are you sure?'} %>
