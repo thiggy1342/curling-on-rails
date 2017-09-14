@@ -13,11 +13,11 @@
     </tr>
     <% @teams.each do |team| %>
     <tr>
-      <td>team.team_name</td>
-      <td>team.lead</td>
-      <td>team.second</td>
-      <td>team.vice</td>
-      <td>team.skip</td>
+      <td><%= team.team_name %></td>
+      <td><%=team.lead%></td>
+      <td><%=team.second%></td>
+      <td><%=team.vice%></td>
+      <td><%=team.skip%></td>
     </tr>
     <% end %>
   </table>
