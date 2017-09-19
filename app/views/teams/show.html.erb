@@ -1,17 +1,24 @@
 <h1><%= @team.team_name %></h1>
 
 <table>
+  <% @team.players.each do |player| %>
+    <tr>
+      <td><strong><%= player.position %></strong></td>
+      <td><%= player.full_name %>
+      <% if player.member %>
+        (current member)
+      <% end %>
+      </td>
+      <td><%= link_to 'View', league_team_player_path(@league, @team, player) %></td>
+      <td><%= link_to 'Edit', edit_league_team_player_path(@league, @team, player) %></td>
+      <td><%= link_to 'Delete', league_team_player_path(@league, @team, player), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
   <tr>
-    <td><strong>Lead</strong></td><td><%= @team.lead %></td>
-  </tr>
-  <tr>
-    <td><strong>Second</strong></td><td><%= @team.second %></td>
-  </tr>
-  <tr>
-    <td><strong>Vice</strong></td><td><%= @team.vice %></td>
-  </tr>
-  <tr>
-    <td><strong>Skip</strong></td><td><%= @team.skip %></td>
+    <td><%= link_to 'Add new player', new_league_team_player_path(@league, @team) %></td>
   </tr>
 </table>
 

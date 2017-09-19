@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :leagues do
     resources :games
     resources :teams do
-      resources :players
+      resources :players, except: :index
     end
   end
 end
