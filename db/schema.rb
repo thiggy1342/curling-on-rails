@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20170915145909) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "games", force: :cascade do |t|
-    t.integer "league_id"
+    t.bigint "league_id"
     t.text "team_1"
     t.text "team_2"
     t.integer "team_1_score"
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170915145909) do
     t.boolean "member"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "team_id"
+    t.bigint "team_id"
     t.text "position"
     t.index ["team_id"], name: "index_players_on_team_id"
   end
@@ -57,9 +60,12 @@ ActiveRecord::Schema.define(version: 20170915145909) do
     t.text "skip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "league_id"
+    t.bigint "league_id"
     t.text "team_name"
     t.index ["league_id"], name: "index_teams_on_league_id"
   end
 
+  add_foreign_key "games", "leagues"
+  add_foreign_key "players", "teams"
+  add_foreign_key "teams", "leagues"
 end
