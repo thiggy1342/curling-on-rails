@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915145909) do
+ActiveRecord::Schema.define(version: 20170919212338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20170915145909) do
     t.index ["league_id"], name: "index_teams_on_league_id"
   end
 
-  add_foreign_key "games", "leagues"
+  add_foreign_key "games", "leagues", on_delete: :cascade
   add_foreign_key "players", "teams"
   add_foreign_key "teams", "leagues"
 end
