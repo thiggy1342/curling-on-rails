@@ -1,3 +1,42 @@
 <h1>Edit <%= @league.day_of_the_week %> League </h1>
 
-<%= render 'form' %>
+<%= form_with model: @league do |form| %>
+
+    <% if @league.errors.any? %>
+        <% @league.errors.full_messages.each do |error| %>
+            <ul><%= error %></ul>
+        <% end %>
+    <% end %>
+
+    <p>
+      <%= form.label :length %>
+      <%= form.text_field :length %>
+    </p>
+    <p>
+      <%= form.label :day_of_the_week %>
+      <%= form.text_field :day_of_the_week %>
+    </p>
+    <p>
+      <%= form.label :sheets %>
+      <%= form.text_field :sheets %>
+    </p>
+    <p>
+      <%= form.label :manager %>
+      <%= form.text_field :manager %>
+    </p>
+    <p>
+      <%= form.label :start_date %>
+      <%= form.date_field :start_date %>
+    </p>
+    <p>
+      <%= form.label :end_date %>
+      <%= form.date_field :end_date %>
+    </p>
+    <p>
+      <%= form.label :game_start_time %>
+      <%= form.time_field :game_start_time %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>
