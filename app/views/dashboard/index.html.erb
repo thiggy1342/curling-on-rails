@@ -1,0 +1,38 @@
+<h1>Club Dashboard</h1>
+
+<h2>Upcoming Games</h2>
+<table>
+  <th>League</th><th>Date</th><th>Time</th><th>Sheet</th><th>Team 1</th><th>Team 2</th>
+  <% @upcoming_games.each do |game| %>
+    <tr>
+      <td><%= link_to game.league.day_of_the_week, league_path(game.league) %></td>
+      <td><%= game.start_date %></td>
+      <td><%= game.start_time %></td>
+      <td><%= game.sheet %></td>
+      <td><%= game.team_1 %></td>
+      <td><%= game.team_2 %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% @leagues.each do |league| %>
+  <h2><%= league.day_of_the_week %> League Teams</h2>
+  <% league.teams.each do |team| %>
+    <h3><%= link_to team.team_name, league_team_path(league, team) %></h3>
+        <table>
+          <% team.players.each do |player| %>
+            <tr>
+              <td><strong><%= player.position %></strong></td>
+              <td><%= player.full_name %></td>
+              <td>
+              <% if player.member %>
+                Member
+              <% else %>
+                Non-member
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+    <% end %>
+<% end %>
