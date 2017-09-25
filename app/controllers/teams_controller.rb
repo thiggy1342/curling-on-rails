@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
   def create
     @league = League.find(params[:league_id])
     @team = @league.teams.create(team_params)
-    redirect_to league_teams_path
+    redirect_to league_team_path(@league, @team)
   end
 
   def edit
