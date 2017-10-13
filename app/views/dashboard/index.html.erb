@@ -1,39 +1,47 @@
-<h1>Club Dashboard</h1>
-<%= link_to 'View All Leagues', leagues_path %>
+<div class="container-fluid col-sm-10 col-sm-offset-1">
+  <h1 class="page-header">Club Dashboard</h1>
+  <%= link_to 'View All Leagues', leagues_path %>
 
-<h2>Upcoming Games</h2>
-<table>
-  <th>League</th><th>Date</th><th>Time</th><th>Sheet</th><th>Team 1</th><th>Team 2</th>
-  <% @upcoming_games.each do |game| %>
-    <tr>
-      <td><%= link_to game.league.day_of_the_week, league_path(game.league) %></td>
-      <td><%= game.start_date %></td>
-      <td><%= game.start_time %></td>
-      <td><%= game.sheet %></td>
-      <td><%= game.team_1 %></td>
-      <td><%= game.team_2 %></td>
-    </tr>
-  <% end %>
-</table>
+  <h2>Upcoming Games</h2>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <th>League</th><th>Date</th><th>Time</th><th>Sheet</th><th>Team 1</th><th>Team 2</th>
+      <% @upcoming_games.each do |game| %>
+        <tr>
+          <td><%= link_to game.league.day_of_the_week, league_path(game.league) %></td>
+          <td><%= game.start_date %></td>
+          <td><%= game.start_time %></td>
+          <td><%= game.sheet %></td>
+          <td><%= game.team_1 %></td>
+          <td><%= game.team_2 %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
-<% @leagues.each do |league| %>
-  <h2><%= league.day_of_the_week %> League Teams</h2>
-  <% league.teams.each do |team| %>
-    <h3><%= link_to team.team_name, league_team_path(league, team) %></h3>
-        <table>
-          <% team.players.each do |player| %>
-            <tr>
-              <td><strong><%= player.position %></strong></td>
-              <td><%= player.full_name %></td>
-              <td>
-              <% if player.member %>
-                Member
-              <% else %>
-                Non-member
-              <% end %>
-              </td>
-            </tr>
+  <div class="col-sm-10">
+    <% @leagues.each do |league| %>
+      <div class="col-sm-4">
+        <h2 class="sub-header"><%= league.day_of_the_week %> League Teams</h2>
+          <% league.teams.each do |team| %>
+            <h3><%= link_to team.team_name, league_team_path(league, team) %></h3>
+              <table class="table table-hover">
+                <% team.players.each do |player| %>
+                  <tr>
+                    <td><strong><%= player.position %></strong></td>
+                    <td><%= player.full_name %></td>
+                    <td>
+                    <% if player.member %>
+                      Member
+                    <% else %>
+                      Non-member
+                    <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </table>
           <% end %>
-        </table>
+        </div>
     <% end %>
-<% end %>
+  </div>
+</div>
